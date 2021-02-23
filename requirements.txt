@@ -29,3 +29,6 @@ six==1.14.0
 toml==0.10.2
 urllib3==1.25.8
 webencodings==0.5.1
+appium=1.4.10
+boto3=1.17.12
+selenium=3.141.0
