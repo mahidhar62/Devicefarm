@@ -8,8 +8,8 @@ from time import sleep
 # in your tests:
 # Set up the Device Farm client, get a driver URL:
 class DeviceFarmAppiumWebTests(unittest.TestCase):
-  def setup_method(self, method):
-    devicefarm_client = boto3.client("devicefarm", region_name="us-west-2")
+  def setup_method(self, method): 
+    devicefarm_client = boto3.client("devicefarm",aws_access_key_id=AKIAXKIRXAQZU447TK4K, aws_secret_access_key=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,region_name="us-west-2")
     testgrid_url_response = devicefarm_client.create_test_grid_url(
       projectArn="arn:aws:devicefarm:us-west-2:503085204531:testgrid-project:9e6db8fd-737b-4a63-819b-028e112a0747",
       expiresInSeconds=300)
