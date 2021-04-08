@@ -1,0 +1,34 @@
+ top
+    2  history
+    3  clear
+    4  ls
+    5  vi ~/.ssh/authorized_keys
+    6  vi ~/.ssh/known_hosts
+    7  cat test1.js
+    8  npm install -g selenium-webdriver
+    9  apt install npm
+   10  ls
+   11  node -v
+   12  npm install -g selenium-webdriver
+   13  npm install -g aws-sdk
+   14  vi aws.sh
+   15  chmod +x aws.sh
+   16  ./aws.sh
+   17  . ./aws.sh
+   18  node test1.js
+   19  npm install --save selenium-webdriver
+   20  npm install --save aws-sdk
+   21  node test1.js
+   22  top
+   23  cd /etc/ssh/sshd_config
+   24  vi /etc/ssh/sshd_config
+   25  passwd ubuntu
+   26  service ssh restart
+   27  top
+   28  . ./aws.sh
+   29  node test1.js
+   30  vi test1.js
+   31  node test1.js
+   32  vi test1.js
+   33  ping google.com
+   34  history

@@ -1,0 +1,48 @@
+var webdriver = require('selenium-webdriver');
+var AWS = require("aws-sdk");
+
+var PROJECT_ARN = "arn:aws:devicefarm:us-west-2:503085204531:testgrid-project:1416a07d-5c9f-4519-ab8d-885a3b7e670b";
+var devicefarm = new AWS.DeviceFarm({ region: "us-west-2" });
+
+(async () => {
+    // Get the endpoint to create a new session
+    const testGridUrlResult = await devicefarm.createTestGridUrl({
+        projectArn: PROJECT_ARN,
+        expiresInSeconds: 600
+    }).promise();
+
+    console.log("Created url result:", testGridUrlResult);
+    runExample(testGridUrlResult.url);
+
+})().catch((e) => console.error(e));
+
+var runExample = async (urlString) => {
+    console.log("Starting WebDriverJS remote driver")
+    driver = await new webdriver.Builder()
+        .usingServer(urlString)
+        .withCapabilities({ browserName: 'chrome' })
+        .build();
+
+    console.log("New session created:", driver.getSession());
+
+    //await driver.get('https://aws.amazon.com/');
+    await driver.get('https://www.google.com/');
+    const title = await driver.getTitle();
+    console.log('Title was: ' + title);
+    await driver.get("https://lambdatest.github.io/sample-todo-app/");
+
+    //Let's mark done first two items in the list.
+    await driver.findElement(webdriver.By.name("li1")).click();
+    await driver.findElement(webdriver.By.name("li2")).click();
+
+    // Let's add an item in the list.
+    await driver.findElement(webdriver.By.id("sampletodotext")).sendKeys("Yey, Let's add it to list");
+    await driver.findElement(webdriver.By.id("addbutton")).click();
+
+    // Let's check that the item we added is added in the list.
+    lastItemText = await driver.findElement(webdriver.By.xpath("/html/body/div/div/div/ul/li[6]/span")).getText();
+    console.log(lastItemText)
+
+    console.log("Deleting session...");
+    await driver.quit();
+}

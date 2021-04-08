@@ -1,0 +1,4 @@
+https://www.browserstack.com/guide/sendkeys-in-selenium
+https://www.selenium.dev/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_By.html
+https://applitools.com/blog/javascript-asynchrony-and-asyncawait-in-selenium/
+https://www.protractortest.org/#/async-await
