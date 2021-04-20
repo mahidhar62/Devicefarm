@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: testing.TestNGBasics
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 1, Errors: 0, Skipped: 2, Time elapsed: 0.748 sec <<< FAILURE!
+setUp(testing.TestNGBasics)  Time elapsed: 0.649 sec  <<< FAILURE!
+software.amazon.awssdk.core.exception.SdkClientException: Unable to load credentials from system settings. Secret key must be specified either via environment variable (AWS_SECRET_ACCESS_KEY) or system property (aws.secretAccessKey).
+	at software.amazon.awssdk.core.exception.SdkClientException$BuilderImpl.build(SdkClientException.java:97)
+	at software.amazon.awssdk.auth.credentials.internal.SystemSettingsCredentialsProvider.resolveCredentials(SystemSettingsCredentialsProvider.java:67)
+	at software.amazon.awssdk.awscore.client.handler.AwsClientHandlerUtils.createExecutionContext(AwsClientHandlerUtils.java:72)
+	at software.amazon.awssdk.awscore.client.handler.AwsSyncClientHandler.createExecutionContext(AwsSyncClientHandler.java:68)
+	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.execute(BaseSyncClientHandler.java:88)
+	at software.amazon.awssdk.core.client.handler.SdkSyncClientHandler.execute(SdkSyncClientHandler.java:45)
+	at software.amazon.awssdk.awscore.client.handler.AwsSyncClientHandler.execute(AwsSyncClientHandler.java:55)
+	at software.amazon.awssdk.services.devicefarm.DefaultDeviceFarmClient.createTestGridUrl(DefaultDeviceFarmClient.java:633)
+	at testing.TestNGBasics.setUp(TestNGBasics.java:33)
+
