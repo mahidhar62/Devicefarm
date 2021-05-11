@@ -29,7 +29,7 @@ properties([
 	 ],   
     causeString: 'Triggered on $refsb',
     
-    token: 'w348724676w242377892w8289387w8739724389-cebip_nrfm_los',
+    token: '',
     
     printContributedVariables: true,
     printPostContent: true,
@@ -46,10 +46,10 @@ properties([
 pipeline {
 
     environment {
-        ROLEARN = "arn:aws:iam::323467308667:role/Jenkins-Role-NNA-Prod"   
-        ProjectArn : "arn:aws:devicefarm:us-west-2:323467308667:testgrid-project:93af0894-770d-46bb-85f9-f0ea1b24ba5a"
+        ROLEARN = ""   
+        ProjectArn : ""
         jenkinsCredentialsForBitbucket = "BitBucket-Admin"
-        repository = "https://bitbucket.aws.na.nissancloud.biz/scm/devops/devicefarm.git"
+        repository = ""
         REGION = "us-east-1"
         
     }
@@ -74,7 +74,7 @@ pipeline {
             steps {
                echo 'Checking out shared scripts from Bit Bucket...'  
                dir('jenkins-libraries') {
-                    git  branch: "master", url: "https://bitbucket.aws.na.nissancloud.biz/scm/dev/jenkins-libraries.git", credentialsId: 'BitBucket-Admin'
+                    git  branch: "master", url: "'
                 }
             }
           }
